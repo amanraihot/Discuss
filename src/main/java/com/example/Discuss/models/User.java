@@ -1,4 +1,4 @@
-package models;
+package com.example.Discuss.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,9 +17,11 @@ public class User {
     private long userId;
 
     @Column(name = "name")
-    private String name;
+    private String username;
 
     @Column(name = "password")
     private  String password;
+
+    private boolean isActive;
 
 }
