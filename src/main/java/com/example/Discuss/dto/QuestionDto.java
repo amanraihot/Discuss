@@ -1,2 +1,12 @@
-package com.example.Discuss.dto;public class QuestionDto {
+package com.example.Discuss.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class QuestionDto {
+
+    private  String question;
+
 }
