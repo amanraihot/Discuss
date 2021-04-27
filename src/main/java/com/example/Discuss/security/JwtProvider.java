@@ -1,29 +1,31 @@
-package com.example.Discuss.helper;
+package com.example.Discuss.security;
+
 
 import com.example.Discuss.Exceptions.SpringDiscussException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.IOException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.imageio.IIOException;
+import javax.swing.*;
+import java.io.IOException;
 import java.io.InputStream;
 import java.security.*;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.time.Instant;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
 
 import static io.jsonwebtoken.Jwts.parser;
 
+
 @Service
-public class JwtUtil {
+public class JwtProvider {
 
     private KeyStore keyStore;
 
@@ -33,7 +35,7 @@ public class JwtUtil {
             keyStore = KeyStore.getInstance("JKS");
             InputStream resourceAsStream = getClass().getResourceAsStream("/springblog.jks");
             keyStore.load(resourceAsStream, "secret".toCharArray());
-        } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException | java.io.IOException e) {
+        } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
             throw new SpringDiscussException("Exception occurred while loading keystore");
         }
 
@@ -51,7 +53,7 @@ public class JwtUtil {
         try {
             return (PrivateKey) keyStore.getKey("springblog", "secret".toCharArray());
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
-            throw new SpringDiscussException("Exception occured while retrieving public key from keystore");
+            throw new  SpringDiscussException("Exception occured while retrieving public key from keystore");
         }
     }
 
