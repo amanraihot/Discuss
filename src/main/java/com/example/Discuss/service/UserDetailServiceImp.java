@@ -1,4 +1,4 @@
-package com.example.Discuss.Service;
+package com.example.Discuss.service;
 
 import com.example.Discuss.models.User;
 import com.example.Discuss.repo.UserRepo;
