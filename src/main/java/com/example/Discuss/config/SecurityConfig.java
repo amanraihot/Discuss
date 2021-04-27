@@ -1,8 +1,15 @@
 package com.example.Discuss.config;
 
+<<<<<<< HEAD
 import com.example.Discuss.service.UserDetailServiceImp;
 import com.example.Discuss.security.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
+=======
+
+import com.example.Discuss.Service.UserDetailServiceImp;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+>>>>>>> main
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception
@@ -43,7 +55,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .anyRequest()
                 .authenticated();
+<<<<<<< HEAD
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+=======
+        httpSecurity.addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);
+>>>>>>> main
     }
 
 
@@ -59,4 +75,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     {
         return new BCryptPasswordEncoder();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main
