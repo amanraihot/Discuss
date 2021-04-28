@@ -25,5 +25,8 @@ public class Question {
     @JoinColumn(name = "userId")
     private User user;
 
+    @OneToMany(mappedBy = "question")
+    private List<Answers> answers;
+
     private Instant created;
 }

@@ -33,4 +33,27 @@ public class QuestionCreateService {
         questionRepo.save(question);
         return new ResponseEntity<>("Question Asked", HttpStatus.OK);
     }
+
+    public  ResponseEntity<?> update(Long id, QuestionDto questionDto)
+    {
+        Question question = questionRepo.findQuestionByQid(id);
+        if(question.getUser() == authService.getCurrentUser())
+        {
+            question.setQuestion(questionDto.getQuestion());
+            return new ResponseEntity<>("Question Updated",HttpStatus.OK);
+        }
+        return new ResponseEntity<>("You are not author of question, only authors are allowed to do update", HttpStatus.BAD_REQUEST);
+    }
+
+
+    public  ResponseEntity<?> delete(Long id)
+    {
+        Question question = questionRepo.findQuestionByQid(id);
+        if(question.getUser() == authService.getCurrentUser())
+        {
+            questionRepo.delete(question);
+            return new ResponseEntity<>("Question Deleted",HttpStatus.OK);
+        }
+        return new ResponseEntity<>("You are not author of question, only authors are allowed to do delete", HttpStatus.BAD_REQUEST);
+    }
 }

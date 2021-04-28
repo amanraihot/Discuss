@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "answers")
 public class Answers {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,5 +29,10 @@ public class Answers {
     @JoinColumn(name = "userId")
     private User user;
 
+    @OneToMany(mappedBy = "answers")
+    private List<Comments> comments;
+    
     private Instant created;
+
+
 }
