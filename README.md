@@ -1,4 +1,4 @@
-This prohject is currently under devlopment 
+This project is currently under devlopment 
 Teach Stack
 Spring Boot , PostGres
 
