@@ -6,7 +6,9 @@ import com.example.Discuss.dto.RegisterRequest;
 import com.example.Discuss.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -14,13 +16,6 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
-
-
-    @GetMapping("/hola")
-    public  String hola()
-    {
-        return new String("hole");
-    }
 
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest)

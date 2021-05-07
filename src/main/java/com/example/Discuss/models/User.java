@@ -14,6 +14,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39,6 +40,13 @@ public class User {
     @NotBlank(message = "Email id is important")
     @Column(name = "emailId")
     private String email;
+
+    @OneToMany(mappedBy = "follower")
+    private List<Friends> followers;
+
+    @OneToMany(mappedBy = "following")
+    private List<Friends> following;
+
 
     private boolean isActive;
 

@@ -21,7 +21,7 @@ public class Comments {
 
     private String comment;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "aid")
     private Answers answers;
 

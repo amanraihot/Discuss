@@ -3,6 +3,7 @@ package com.example.Discuss.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -21,7 +22,7 @@ public class Answers {
     @Column(name = "answer")
     private  String answer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "qid")
     private  Question question;
 
@@ -30,8 +31,9 @@ public class Answers {
     private User user;
 
     @OneToMany(mappedBy = "answers")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Comments> comments;
-    
+
     private Instant created;
 
 
