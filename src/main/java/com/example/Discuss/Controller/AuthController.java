@@ -17,6 +17,11 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    @GetMapping("/hola")
+    public String hola()
+    {
+        return "ddef";
+    }
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest)
     {

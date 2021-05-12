@@ -3,6 +3,7 @@ package com.example.Discuss.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -22,10 +23,12 @@ public class Answers {
     @Column(name = "answer")
     private  String answer;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "qid")
     private  Question question;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
