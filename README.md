@@ -4,13 +4,14 @@ Spring Boot , PostGres
 
 
 # Features
+* Its a Q-A app
 * User can ask questions
 * User can give answers
 * User can add comments
 * User can follow other users
 * User can unfollow other users
 * User can see what their friends are posting
-* User can see latest questions asked 
+* User can see latest questions aske
 * Users can see the answers given to their questions
 
 # Implementation
@@ -119,5 +120,8 @@ Spring Boot , PostGres
     QuestionRepo.java
     UserRepo.java
  ```
- 
- 
+ ### Reason for choosing SQL database :
+ ```
+  So lets according to my limited undestanding and fiindings. Lets take the example of catalog system like Amazon we see that it soesnt     remain same every day new sellers and products and sub products etc comes.  Storing each of them and query pattern becomes a        daunting   task. But here I have used  SQL databases because query pattern will remain same so I used this.
+```
+
