@@ -122,6 +122,6 @@ Spring Boot , PostGres
  ```
  ### Reason for choosing SQL database :
  ```
-  So lets according to my limited undestanding and fiindings. Lets take the example of catalog system like Amazon we see that it soesnt     remain same every day new sellers and products and sub products etc comes.  Storing each of them and query pattern becomes a        daunting   task. But here I have used  SQL databases because query pattern will remain same so I used this.
+  So  according to my limited undestanding and findings. Lets take the example of catalog system like Amazon we see that it soesnt     remain same every day new sellers and products and sub products etc comes.  Storing each of them and query pattern becomes a        daunting   task. But here I have used  SQL databases because query pattern will remain same so I used this.
 ```
 
